@@ -1,0 +1,172 @@
+/* For grey Nav Bar */
+.margin-free{
+    margin-bottom: 0%;
+}
+.blue-hover :hover{
+    color: #2a81ea !important;
+}
+.mycart{
+    color: blueviolet !important;
+    font-weight: 500;
+}
+.mycart :hover{
+    color: rgb(251, 184, 0) !important;
+}
+/* For search bar */
+.searchbar{
+    padding-top: 4%;
+}
+@media only screen and (max-width: 1220px) {
+    .searchbar{
+        padding-top: 12%;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .searchbar{
+        padding-top: 12%;
+    }
+}
+    @media only screen and (max-width: 575px) {
+        .searchbar{
+            padding-top: 15%;
+        }
+    }
+        @media only screen and (max-width: 365px) {
+            .searchbar{
+                padding-top: 20%;
+            }
+        }
+.search-icon :hover{
+    color: #2a81ea;
+}
+.input-group>.form-control, .input-group>.form-select{
+    flex: 0.5 auto !important;
+    text-align: center;
+}
+/* black bar */
+.background-black{
+    background-color: black;
+    background-size: contain;
+}
+.mad :hover{
+    color:blueviolet !important;
+}
+.decoration
+{
+text-decoration: none;
+}
+/* Footer  */
+.background-footer{
+    background-color: rgb(47, 46, 46);
+    background-size: cover;
+}
+.font-white{
+    color: aliceblue;
+}
+.footer-links{
+    color: grey;
+}
+@media only screen and (max-width: 1220px) {
+    .mad{
+        font-size: 60%;
+    }
+
+}
+.font-pink{
+    color: rgb(233, 25, 202);
+    font-size: 1.5rem;
+    font-weight: 1000;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.hr-theme-slash-2 {
+    display: flex;
+}
+    .hr-line {
+      width: 35%;
+      position: relative;
+      margin: 15px;
+      border-bottom: 1px solid #000;
+    }
+    .hr-font {
+      position: relative;
+      color: rgb(47, 45, 45);
+      font-weight: 500;
+      font-size: 2.5rem;
+    }
+    @media only screen and (max-width: 1220px) {
+        .hr-font{
+            font-size: 2rem;
+        }
+    }
+    @media only screen and (max-width: 1000px) {
+        .hr-font{
+            font-size: 1rem;
+        }
+    }
+        @media only screen and (max-width: 575px) {
+            .hr-font{
+                font-size: 1rem;
+            }
+        }
+            @media only screen and (max-width: 365px) {
+                .hr-font{
+                    font-size: 0.7rem;
+                }
+            }
+.btn-hover{
+    padding: 15px 25px;
+    color: rgb(48, 47, 47);
+    border: none;
+    background-color: transparent;
+    text-decoration: none;
+
+}
+.btn-hover:hover {
+    color: rgb(253, 13, 97);
+    text-decoration: underline;
+}
+.icon-purple{
+    color: purple;
+}
+.icon-grey{
+    color: grey;
+    border: grey 1px;
+    border-radius: 20%;
+}
+.width-adjust{
+    width: 50%;
+    height: 200px;
+}
+/* Image background */
+.image-background{
+    background:     linear-gradient(
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.7)
+      ),url(https://images.unsplash.com/photo-1593531944206-2195b2e49bd3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwyMDkxNTM5fHxlbnwwfHx8fA%3D%3D&w=1000&q=80) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.padding-text{
+    padding-right: 10rem;
+    padding-left: 10rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family: 'Courier New', Courier, monospace;
+}
+.image-hover:hover {
+    filter: brightness(50%);
+
+}
+.hide{
+    display: none;
+}
+.image-hover:hover + .hide{
+    display: flex;
+    position: absolute;
+    top: 40%;
+    right: 45%;
+}
+.icon-white{
+    color: white;
+}
