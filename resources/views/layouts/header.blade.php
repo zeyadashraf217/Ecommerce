@@ -29,7 +29,10 @@
                     <ul class="navbar-nav offset-5">
                       <li class="nav-item ps-5 blue-hover">
                         @if(Auth::user())
-                        <a class="nav-link active" aria-current="page" href="#">My Account</a>
+                        <form action="{{ route('user.show',Auth::user()->id) }}">
+                            <button class="nav-link active btn btn-link" aria-current="page">My Account</button>
+                        </form>
+
                         @else
                         <a class="nav-link active" aria-current="page" href="login">Login</a>
                         @endif

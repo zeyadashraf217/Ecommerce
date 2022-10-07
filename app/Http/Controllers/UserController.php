@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products=Product::get();
-        return view('product',compact('products'));
+        $users=user::get();
+        return view('user',compact('users'));
     }
 
     /**
@@ -26,8 +25,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories=Category::get();
-        return view('create_product',compact('categories'));
+        return view('create_user');
     }
 
     /**
@@ -38,11 +36,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = Product::create(['name' => $request->name , 'price' => $request->price , 'quantity' => $request->quantity , 'category_id' => $request->category_id]);
-        $product
-        ->addMediaFromRequest('image')
-        ->toMediaCollection();
-        return redirect()->route('product.index');
+        user::create(['name' => $request->name , 'email' => $request->email , 'password' =>md5($request->password)]);
+        return redirect()->route('user.index');
     }
 
     /**
@@ -53,7 +48,9 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        return view('Myaccount',compact('user'));
+
     }
 
     /**
@@ -64,9 +61,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product= Product::find($id);
-        $categories=Category::get();
-        return view('update_product',compact('product','categories'));
+        $user= user::find($id);
+        return view('update_user',compact('user'));
     }
 
     /**
@@ -78,9 +74,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product= Product::find($id);
-        $product->update(['name' => $request->name , 'price' => $request->price , 'quantity' => $request->quantity , 'category_id' => $request->category_id]);
-        return redirect()->route('product.index');
+        $user= user::find($id);
+        $user->update(['name' => $request->name , 'email' => $request->email , 'password' =>md5($request->password)]);
+        return redirect()->route('user.index');
     }
 
     /**
@@ -91,7 +87,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        Product::find($id)->delete();
+        user::find($id)->delete();
         return back();
     }
 }

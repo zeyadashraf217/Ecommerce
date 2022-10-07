@@ -14,4 +14,5 @@ class OrderProduct extends Model
         'quantity',
         'price',
     ];
+public $table = 'order_product';
 }
