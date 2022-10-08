@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -16,7 +17,7 @@ class ProductController extends Controller
     public function index()
     {
         $products=Product::get();
-        return view('product',compact('products'));
+        return view('product.product',compact('products'));
     }
 
     /**
@@ -27,7 +28,7 @@ class ProductController extends Controller
     public function create()
     {
         $categories=Category::get();
-        return view('create_product',compact('categories'));
+        return view('product.create_product',compact('categories'));
     }
 
     /**
@@ -66,7 +67,7 @@ class ProductController extends Controller
     {
         $product= Product::find($id);
         $categories=Category::get();
-        return view('update_product',compact('product','categories'));
+        return view('product.update_product',compact('product','categories'));
     }
 
     /**
@@ -94,4 +95,44 @@ class ProductController extends Controller
         Product::find($id)->delete();
         return back();
     }
+    public function addData()
+    {
+        Category::create(['name' => 'women']);
+        Category::create(['name' => 'men']);
+        Category::create(['name' => 'kids']);
+        $categories = Category::get();
+        foreach ($categories as $category)
+        {
+            for($i=1;$i<9;$i++)
+            {
+            $product = Product::create(['name' => 'item-'.$i , 'price' => '1000' , 'quantity' => '50' , 'category_id' => $category->id ]);
+            $product
+            ->addMedia(storage_path('images/'.$category->name.'/'.$i.'.jpg'))
+            ->preservingOriginal()
+            ->toMediaCollection();
+         }
+
+        }
+      return back();
+    }
+    public function women_products()
+    {
+        $category_id= Category::where('name', 'women')->first()->id;
+        $products = Product::where('category_id',$category_id)->get()->take(8);
+        return view('/',compact('products'));
+    }
+    public function men_products()
+    {
+        $category_id= Category::where('name', 'men')->first()->id;
+        $products = Product::where('category_id',$category_id)->get()->take(8);
+        return view('/',compact('products'));
+    }
+    public function kids_products()
+    {
+        $category_id= Category::where('name', 'kids')->first()->id;
+        $products = Product::where('category_id',$category_id)->get()->take(8);
+        return view('/',compact('products'));
+    }
 }
+
+

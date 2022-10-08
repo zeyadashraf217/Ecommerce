@@ -86,24 +86,26 @@
                 {{-- Buttons --}}
                 <div class="row">
                     <div class="col-12 d-flex flex-row justify-content-center me-lg-5 pe-lg-5">
-                        <div><button type="button" class="btn-hover">All</button> </div>
-                        <div><button type="button" class="btn-hover">Men</button> </div>
-                        <div><button type="button" class="btn-hover">Women</button> </div>
-                        <div><button type="button" class="btn-hover">Kids</button> </div>
+                        <div><button type="submit" class="btn-hover">All</button> </div>
+                        <div><button type="submit" class="btn-hover">Men</button> </div>
+                        <div><button type="submit" class="btn-hover active" data-bs-toggle="button" aria-pressed="true">Women</button> </div>
+                        <div><button type="submit" class="btn-hover">Kids</button> </div>
                     </div>
                 </div>
                 {{-- Cards --}}
-                {{-- Card-1 --}}
+
                 <div class="row row-cols-1 row-cols-md-4 g-4">
+                    @foreach ($products as $product )
                     <div class="col">
                       <div class="card h-100 position-relative">
-                        <div class="position-absolute top-0 end-0 background-black text-white h4">150$</div>
-                    <div class="position relative">    <img src="https://static.bershka.net/4/photos2/2022/I/0/1/p/7290/376/712//01/7290376712_1_1_3.jpg?t=1662626996960" class="card-img-top image-hover" alt="...">
+                        <div class="position-absolute top-0 end-0 background-black text-white h4">{{ $product->price }}$</div>
+                    <div class="position relative">    <img src="{{ $product->getFirstMediaUrl()  }}" class="card-img-top image-hover" alt="...">
                         <div class="hide">
                             <a href=""> <i class="fa-solid fa-eye fa-2x icon-white"></i></a>
                         </div>
                     </div>
                         <div class="card-body">
+                        <h4> {{ $product->name }}</h4>
                           <span> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-regular fa-star"></i></span>
                           <p class="card-text pt-3"><a class="icon-grey"><i class="fa-solid fa-heart  border rounded-circle px-1 py-1"></i> </a>
                             <a class="icon-grey px-3"><i class="fa-solid fa-cart-shopping  border rounded-circle px-1 py-1"></i> </a>
@@ -112,132 +114,8 @@
                         </div>
                       </div>
                     </div>
-                    {{--card2--}}
-                    <div class="col">
-                        <div class="card h-100 position-relative">
-                          <div class="position-absolute top-0 end-0 background-black text-white h4">150$</div>
-                      <div class="position relative">    <img src="https://static.bershka.net/4/photos2/2022/I/0/1/p/7295/663/802//01/7295663802_1_1_3.jpg?t=1663861145378" class="card-img-top image-hover" alt="...">
-                          <div class="hide">
-                              <a href=""> <i class="fa-solid fa-eye fa-2x icon-white"></i></a>
-                          </div>
-                      </div>
-                          <div class="card-body">
-                            <span> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-regular fa-star"></i></span>
-                            <p class="card-text pt-3"><a class="icon-grey"><i class="fa-solid fa-heart  border rounded-circle px-1 py-1"></i> </a>
-                              <a class="icon-grey px-3"><i class="fa-solid fa-cart-shopping  border rounded-circle px-1 py-1"></i> </a>
-                              <a class="icon-grey"><i class="fa-solid fa-share border rounded-circle px-1 py-1"></i> </a>
-                          </p>
-                          </div>
-                        </div>
-                      </div>
-                                {{--card3--}}
-                                <div class="col">
-                                    <div class="card h-100 position-relative">
-                                      <div class="position-absolute top-0 end-0 background-black text-white h4">150$</div>
-                                  <div class="position relative">    <img src="https://static.bershka.net/4/photos2/2022/I/0/1/p/7084/512/250//02/7084512250_1_1_3.jpg?t=1657116947044" class="card-img-top image-hover" alt="...">
-                                      <div class="hide">
-                                          <a href=""> <i class="fa-solid fa-eye fa-2x icon-white"></i></a>
-                                      </div>
-                                  </div>
-                                      <div class="card-body">
-                                        <span> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-regular fa-star"></i></span>
-                                        <p class="card-text pt-3"><a class="icon-grey"><i class="fa-solid fa-heart  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey px-3"><i class="fa-solid fa-cart-shopping  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey"><i class="fa-solid fa-share border rounded-circle px-1 py-1"></i> </a>
-                                      </p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                {{--card4--}}
-                                <div class="col">
-                                    <div class="card h-100 position-relative">
-                                      <div class="position-absolute top-0 end-0 background-black text-white h4">150$</div>
-                                  <div class="position relative">    <img src="https://static.bershka.net/4/photos2/2022/I/0/1/p/7454/596/712//01/7454596712_1_1_3.jpg?t=1656407633562" class="card-img-top image-hover" alt="...">
-                                      <div class="hide">
-                                          <a href=""> <i class="fa-solid fa-eye fa-2x icon-white"></i></a>
-                                      </div>
-                                  </div>
-                                      <div class="card-body">
-                                        <span> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-regular fa-star"></i></span>
-                                        <p class="card-text pt-3"><a class="icon-grey"><i class="fa-solid fa-heart  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey px-3"><i class="fa-solid fa-cart-shopping  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey"><i class="fa-solid fa-share border rounded-circle px-1 py-1"></i> </a>
-                                      </p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                {{--card5--}}
-                                <div class="col">
-                                    <div class="card h-100 position-relative">
-                                      <div class="position-absolute top-0 end-0 background-black text-white h4">150$</div>
-                                  <div class="position relative">    <img src="https://static.bershka.net/4/photos2/2022/I/0/1/p/7084/512/250//02/7084512250_1_1_3.jpg?t=1657116947044" class="card-img-top image-hover" alt="...">
-                                      <div class="hide">
-                                          <a href=""> <i class="fa-solid fa-eye fa-2x icon-white"></i></a>
-                                      </div>
-                                  </div>
-                                      <div class="card-body">
-                                        <span> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-regular fa-star"></i></span>
-                                        <p class="card-text pt-3"><a class="icon-grey"><i class="fa-solid fa-heart  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey px-3"><i class="fa-solid fa-cart-shopping  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey"><i class="fa-solid fa-share border rounded-circle px-1 py-1"></i> </a>
-                                      </p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                {{--card6--}}
-                                <div class="col">
-                                    <div class="card h-100 position-relative">
-                                      <div class="position-absolute top-0 end-0 background-black text-white h4">150$</div>
-                                  <div class="position relative">    <img src="https://static.bershka.net/4/photos2/2022/I/0/1/p/7451/693/500//01/7451693500_1_1_3.jpg?t=1662035030809" class="card-img-top image-hover" alt="...">
-                                      <div class="hide">
-                                          <a href=""> <i class="fa-solid fa-eye fa-2x icon-white"></i></a>
-                                      </div>
-                                  </div>
-                                      <div class="card-body">
-                                        <span> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-regular fa-star"></i></span>
-                                        <p class="card-text pt-3"><a class="icon-grey"><i class="fa-solid fa-heart  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey px-3"><i class="fa-solid fa-cart-shopping  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey"><i class="fa-solid fa-share border rounded-circle px-1 py-1"></i> </a>
-                                      </p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                {{--card7--}}
-                                <div class="col">
-                                    <div class="card h-100 position-relative">
-                                      <div class="position-absolute top-0 end-0 background-black text-white h4">150$</div>
-                                  <div class="position relative">    <img src="https://static.bershka.net/4/photos2/2022/I/0/1/p/7452/376/800//02/7452376800_2_3_3.jpg?t=1656678460599" class="card-img-top image-hover" alt="...">
-                                      <div class="hide">
-                                          <a href=""> <i class="fa-solid fa-eye fa-2x icon-white"></i></a>
-                                      </div>
-                                  </div>
-                                      <div class="card-body">
-                                        <span> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-regular fa-star"></i></span>
-                                        <p class="card-text pt-3"><a class="icon-grey"><i class="fa-solid fa-heart  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey px-3"><i class="fa-solid fa-cart-shopping  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey"><i class="fa-solid fa-share border rounded-circle px-1 py-1"></i> </a>
-                                      </p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                {{--card8--}}
-                                <div class="col">
-                                    <div class="card h-100 position-relative">
-                                      <div class="position-absolute top-0 end-0 background-black text-white h4">150$</div>
-                                  <div class="position relative">    <img src="https://static.bershka.net/4/photos2/2022/I/0/1/p/7788/831/720/7788831720_1_1_3.jpg?t=1661777799755" class="card-img-top image-hover" alt="...">
-                                      <div class="hide">
-                                          <a href=""> <i class="fa-solid fa-eye fa-2x icon-white"></i></a>
-                                      </div>
-                                  </div>
-                                      <div class="card-body">
-                                        <span> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-regular fa-star"></i></span>
-                                        <p class="card-text pt-3"><a class="icon-grey"><i class="fa-solid fa-heart  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey px-3"><i class="fa-solid fa-cart-shopping  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey"><i class="fa-solid fa-share border rounded-circle px-1 py-1"></i> </a>
-                                      </p>
-                                      </div>
-                                    </div>
-                                  </div>
+
+                    @endforeach
                   </div>
             </div>
                     {{-- 2 images --}}
@@ -265,156 +143,37 @@
                         {{-- Buttons --}}
 
                         {{-- Cards --}}
-                             {{-- Card-1 --}}
-                <div class="row row-cols-1 row-cols-md-4 g-4">
-                    <div class="col">
-                      <div class="card h-100 position-relative">
-                        <div class="position-absolute top-0 end-0 background-black text-white h4">150$</div>
-                    <div class="position relative">    <img src="https://static.bershka.net/4/photos2/2022/I/0/1/p/7290/376/712//01/7290376712_1_1_3.jpg?t=1662626996960" class="card-img-top image-hover" alt="...">
-                        <div class="hide">
-                            <a href=""> <i class="fa-solid fa-eye fa-2x icon-white"></i></a>
-                        </div>
-                    </div>
-                        <div class="card-body">
-                          <span> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-regular fa-star"></i></span>
-                          <p class="card-text pt-3"><a class="icon-grey"><i class="fa-solid fa-heart  border rounded-circle px-1 py-1"></i> </a>
-                            <a class="icon-grey px-3"><i class="fa-solid fa-cart-shopping  border rounded-circle px-1 py-1"></i> </a>
-                            <a class="icon-grey"><i class="fa-solid fa-share border rounded-circle px-1 py-1"></i> </a>
-                        </p>
-                        </div>
-                      </div>
-                    </div>
-                    {{--card2--}}
-                    <div class="col">
-                        <div class="card h-100 position-relative">
-                          <div class="position-absolute top-0 end-0 background-black text-white h4">150$</div>
-                      <div class="position relative">    <img src="https://static.bershka.net/4/photos2/2022/I/0/1/p/7295/663/802//01/7295663802_1_1_3.jpg?t=1663861145378" class="card-img-top image-hover" alt="...">
-                          <div class="hide">
-                              <a href=""> <i class="fa-solid fa-eye fa-2x icon-white"></i></a>
-                          </div>
-                      </div>
-                          <div class="card-body">
-                            <span> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-regular fa-star"></i></span>
-                            <p class="card-text pt-3"><a class="icon-grey"><i class="fa-solid fa-heart  border rounded-circle px-1 py-1"></i> </a>
-                              <a class="icon-grey px-3"><i class="fa-solid fa-cart-shopping  border rounded-circle px-1 py-1"></i> </a>
-                              <a class="icon-grey"><i class="fa-solid fa-share border rounded-circle px-1 py-1"></i> </a>
-                          </p>
-                          </div>
-                        </div>
-                      </div>
-                                {{--card3--}}
-                                <div class="col">
-                                    <div class="card h-100 position-relative">
-                                      <div class="position-absolute top-0 end-0 background-black text-white h4">150$</div>
-                                  <div class="position relative">    <img src="https://static.bershka.net/4/photos2/2022/I/0/1/p/7084/512/250//02/7084512250_1_1_3.jpg?t=1657116947044" class="card-img-top image-hover" alt="...">
-                                      <div class="hide">
-                                          <a href=""> <i class="fa-solid fa-eye fa-2x icon-white"></i></a>
-                                      </div>
-                                  </div>
-                                      <div class="card-body">
-                                        <span> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-regular fa-star"></i></span>
-                                        <p class="card-text pt-3"><a class="icon-grey"><i class="fa-solid fa-heart  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey px-3"><i class="fa-solid fa-cart-shopping  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey"><i class="fa-solid fa-share border rounded-circle px-1 py-1"></i> </a>
-                                      </p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                {{--card4--}}
-                                <div class="col">
-                                    <div class="card h-100 position-relative">
-                                      <div class="position-absolute top-0 end-0 background-black text-white h4">150$</div>
-                                  <div class="position relative">    <img src="https://static.bershka.net/4/photos2/2022/I/0/1/p/7454/596/712//01/7454596712_1_1_3.jpg?t=1656407633562" class="card-img-top image-hover" alt="...">
-                                      <div class="hide">
-                                          <a href=""> <i class="fa-solid fa-eye fa-2x icon-white"></i></a>
-                                      </div>
-                                  </div>
-                                      <div class="card-body">
-                                        <span> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-regular fa-star"></i></span>
-                                        <p class="card-text pt-3"><a class="icon-grey"><i class="fa-solid fa-heart  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey px-3"><i class="fa-solid fa-cart-shopping  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey"><i class="fa-solid fa-share border rounded-circle px-1 py-1"></i> </a>
-                                      </p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                {{--card5--}}
-                                <div class="col">
-                                    <div class="card h-100 position-relative">
-                                      <div class="position-absolute top-0 end-0 background-black text-white h4">150$</div>
-                                  <div class="position relative">    <img src="https://static.bershka.net/4/photos2/2022/I/0/1/p/7084/512/250//02/7084512250_1_1_3.jpg?t=1657116947044" class="card-img-top image-hover" alt="...">
-                                      <div class="hide">
-                                          <a href=""> <i class="fa-solid fa-eye fa-2x icon-white"></i></a>
-                                      </div>
-                                  </div>
-                                      <div class="card-body">
-                                        <span> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-regular fa-star"></i></span>
-                                        <p class="card-text pt-3"><a class="icon-grey"><i class="fa-solid fa-heart  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey px-3"><i class="fa-solid fa-cart-shopping  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey"><i class="fa-solid fa-share border rounded-circle px-1 py-1"></i> </a>
-                                      </p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                {{--card6--}}
-                                <div class="col">
-                                    <div class="card h-100 position-relative">
-                                      <div class="position-absolute top-0 end-0 background-black text-white h4">150$</div>
-                                  <div class="position relative">    <img src="https://static.bershka.net/4/photos2/2022/I/0/1/p/7451/693/500//01/7451693500_1_1_3.jpg?t=1662035030809" class="card-img-top image-hover" alt="...">
-                                      <div class="hide">
-                                          <a href=""> <i class="fa-solid fa-eye fa-2x icon-white"></i></a>
-                                      </div>
-                                  </div>
-                                      <div class="card-body">
-                                        <span> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-regular fa-star"></i></span>
-                                        <p class="card-text pt-3"><a class="icon-grey"><i class="fa-solid fa-heart  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey px-3"><i class="fa-solid fa-cart-shopping  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey"><i class="fa-solid fa-share border rounded-circle px-1 py-1"></i> </a>
-                                      </p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                {{--card7--}}
-                                <div class="col">
-                                    <div class="card h-100 position-relative">
-                                      <div class="position-absolute top-0 end-0 background-black text-white h4">150$</div>
-                                  <div class="position relative">    <img src="https://static.bershka.net/4/photos2/2022/I/0/1/p/7452/376/800//02/7452376800_2_3_3.jpg?t=1656678460599" class="card-img-top image-hover" alt="...">
-                                      <div class="hide">
-                                          <a href=""> <i class="fa-solid fa-eye fa-2x icon-white"></i></a>
-                                      </div>
-                                  </div>
-                                      <div class="card-body">
-                                        <span> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-regular fa-star"></i></span>
-                                        <p class="card-text pt-3"><a class="icon-grey"><i class="fa-solid fa-heart  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey px-3"><i class="fa-solid fa-cart-shopping  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey"><i class="fa-solid fa-share border rounded-circle px-1 py-1"></i> </a>
-                                      </p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                {{--card8--}}
-                                <div class="col">
-                                    <div class="card h-100 position-relative">
-                                      <div class="position-absolute top-0 end-0 background-black text-white h4">150$</div>
-                                  <div class="position relative">    <img src="https://static.bershka.net/4/photos2/2022/I/0/1/p/7788/831/720/7788831720_1_1_3.jpg?t=1661777799755" class="card-img-top image-hover" alt="...">
-                                      <div class="hide">
-                                          <a href=""> <i class="fa-solid fa-eye fa-2x icon-white"></i></a>
-                                      </div>
-                                  </div>
-                                      <div class="card-body">
-                                        <span> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-regular fa-star"></i></span>
-                                        <p class="card-text pt-3"><a class="icon-grey"><i class="fa-solid fa-heart  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey px-3"><i class="fa-solid fa-cart-shopping  border rounded-circle px-1 py-1"></i> </a>
-                                          <a class="icon-grey"><i class="fa-solid fa-share border rounded-circle px-1 py-1"></i> </a>
-                                      </p>
-                                      </div>
-                                    </div>
-                                  </div>
-                  </div>
-                          <div class="row text-center pt-4">
-                            <div > <button type="button" class="btn btn-outline-secondary">Load More</button></div>
 
-                          </div>
+                          <div class="row row-cols-1 row-cols-md-4 g-4">
+                            @foreach ($random_products as $product )
+                            <div class="col">
+                              <div class="card h-100 position-relative">
+                                <div class="position-absolute top-0 end-0 background-black text-white h4">{{ $product->price }}$</div>
+                            <div class="position relative">    <img src="{{ $product->getFirstMediaUrl()  }}" class="card-img-top image-hover" alt="...">
+                                <div class="hide">
+                                    <a href=""> <i class="fa-solid fa-eye fa-2x icon-white"></i></a>
+                                </div>
+                            </div>
+                                <div class="card-body">
+                                <h4> {{ $product->name }}</h4>
+                                  <span> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-regular fa-star"></i></span>
+                                  <p class="card-text pt-3"><a class="icon-grey"><i class="fa-solid fa-heart  border rounded-circle px-1 py-1"></i> </a>
+                                    <a class="icon-grey px-3"><i class="fa-solid fa-cart-shopping  border rounded-circle px-1 py-1"></i> </a>
+                                    <a class="icon-grey"><i class="fa-solid fa-share border rounded-circle px-1 py-1"></i> </a>
+                                </p>
+                                </div>
+                              </div>
+                            </div>
+
+                            @endforeach
+                        </div>
+
+                            <div class="row text-center pt-3" >
+                                <div>
+                                 <button type="button" class="btn btn-outline-secondary">Load More</button>
+                                </div>
+
+                            </div>
                     </div>
 
                     {{-- Image with writing --}}

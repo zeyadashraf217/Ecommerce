@@ -15,7 +15,7 @@ class UserController extends Controller
     public function index()
     {
         $users=user::get();
-        return view('user',compact('users'));
+        return view('user.user',compact('users'));
     }
 
     /**
@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('create_user');
+        return view('user.create_user');
     }
 
     /**
@@ -62,7 +62,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user= user::find($id);
-        return view('update_user',compact('user'));
+        return view('user.update_user',compact('user'));
     }
 
     /**

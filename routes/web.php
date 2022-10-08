@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\UserController;
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,11 +21,12 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $category_id= Category::where('name', 'women')->first()->id;
+    $products = Product::where('category_id',$category_id)->get()->take(8);
+    $random_products = Product::inRandomOrder()->get()->take(8);
+    return view('homepage',compact('products','random_products'));
 });
-Route::get('/homepage', function () {
-    return view('homepage');
-});
+
 
 
 Auth::routes(['verify' => true ,'resend'=> true]);
@@ -38,6 +40,6 @@ Route::resource('product', ProductController::class);
 Route::resource('category', CategoryController::class);
 Route::resource('user', UserController::class);
 
-// Route::get('/master', function () {
-//     return view('user');
-// })->can('admin','moderator')->name('starter');
+Route::get('/adddata', [App\Http\Controllers\ProductController::class, 'addData'])->name('add_data');
+Route::get('/leoo', [App\Http\Controllers\ProductController::class, 'women_products'])->name('womenProducts');
+

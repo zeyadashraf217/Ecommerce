@@ -28,7 +28,7 @@
                     <label for="type">type</label>
                     <input type="text" name="type" class="form-control" value="{{ Auth::user()->type }}" disabled>
                 </div>
-                <div class="col-md-4 col-md-offset-4 pt-5">
+                <div class="col-md-4 col-md-offset-4 pt-3">
                     <a class="btn btn-danger" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">
@@ -40,17 +40,23 @@
                  </form>
                 </div>
 
-                <div class="col-md-4 col-md-offset-4 pt-5">
+                <div class="col-md-4 col-md-offset-4 pt-3">
                     @if(Auth::user()->email_verified_at==null)
                     <a class="btn btn-warning" href="{{ url('email/verify') }}">Verify</a>
                     @endif
                 </div>
-                <div class="col-md-4 col-md-offset-4 pt-5">
+                <div class="col-md-4 col-md-offset-4 pt-3">
                     @canany(['admin','moderator'])
                     <form action="{{ route('user.index') }}">
                     <button class="btn btn-primary" type="submit" >DashBoard</button>
                     </form>
                     @endcanany
+                </div>
+
+                <div class="col-md-4 col-md-offset-4 pt-3">
+                    <form action="{{ route('add_data') }}">
+                    <button class="btn btn-success" type="submit" >ADD DATA TO DATABASE</button>
+                    </form>
                 </div>
 
         </div>
