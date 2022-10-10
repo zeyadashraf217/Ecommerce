@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
     <link rel="stylesheet" href="{{ ('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <title>Document</title>
 </head>
 <body>
 
 <header>
-    <div class="container-fluid background-adjust">
 
                    {{-- GREY NAVBAR --}}
         <div class="container fluid ">
@@ -52,16 +55,22 @@
                 </div>
               </nav>
         </div>
+        <br>
+        <br>
+        <br>
 
                 {{-- SearchBar --}}
-                <div class="input-group rounded searchbar d-flex justify-content-center container">
-                    <form action="" class="w-50">
-                    <input type="search" class="form-control rounded-pill" placeholder="Search here what you need" aria-label="Search" aria-describedby="search-addon" />
-                    </form>
-
-
+                <div class="input-group rounded  d-flex justify-content-center container">
+                    <div class="form-group w-50">
+                        <input type="input" class="form-control rounded-pill" placeholder="Search here what you need" name="searchs" id="search"/>
+                    </div>
                 </div>
-</div>
+                {{-- search items --}}
+                <div class="container justify-content-center w-50 pt-2 ">
+                    <div class="list-group" id="lists">
+
+                    </div>
+                </div>
 
 
 
@@ -150,5 +159,32 @@
 
 
 </footer>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+
+<script type="text/javascript">
+    $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $('#search').on('keyup', function(){
+            var value = $(this).val();
+            $.ajax({
+                type: "get",
+                url: "/search",
+                data: {'searchs':value},
+                success: function (data) {
+                    $('#lists').html(data);
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 </html>

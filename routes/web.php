@@ -20,13 +20,10 @@ use App\Models\Category;
 |
 */
 
-Route::get('/', function () {
-    $category_id= Category::where('name', 'women')->first()->id;
-    $products = Product::where('category_id',$category_id)->get()->take(8);
-    $random_products = Product::inRandomOrder()->get()->take(8);
-    return view('homepage',compact('products','random_products'));
-});
-
+Route::get('/men', [App\Http\Controllers\ProductController::class, 'men_products'])->name('men');
+Route::get('/kids', [App\Http\Controllers\ProductController::class, 'kids_products'])->name('kids');
+Route::get('/all', [App\Http\Controllers\ProductController::class, 'all_products'])->name('all');
+Route::get('/', [App\Http\Controllers\ProductController::class, 'women_products'])->name('women');
 
 
 Auth::routes(['verify' => true ,'resend'=> true]);
@@ -41,5 +38,4 @@ Route::resource('category', CategoryController::class);
 Route::resource('user', UserController::class);
 
 Route::get('/adddata', [App\Http\Controllers\ProductController::class, 'addData'])->name('add_data');
-Route::get('/leoo', [App\Http\Controllers\ProductController::class, 'women_products'])->name('womenProducts');
-
+Route::get('/search', [ProductController::class, 'search'])->name('product.search');

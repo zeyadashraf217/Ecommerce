@@ -86,24 +86,42 @@
                 {{-- Buttons --}}
                 <div class="row">
                     <div class="col-12 d-flex flex-row justify-content-center me-lg-5 pe-lg-5">
-                        <div><button type="submit" class="btn-hover">All</button> </div>
-                        <div><button type="submit" class="btn-hover">Men</button> </div>
-                        <div><button type="submit" class="btn-hover active" data-bs-toggle="button" aria-pressed="true">Women</button> </div>
-                        <div><button type="submit" class="btn-hover">Kids</button> </div>
+                        <div>
+                              <form action="{{ route('all') }}">
+                            <button type="submit" class="btn-hover">All</button>
+                              </form>
+                        </div>
+                        <div>
+                            <form action="{{ route('men') }}">
+                            <button type="submit" class="btn-hover">Men</button>
+                            </form>
+                        </div>
+                        <div>
+                            <form action="{{ route('women') }}">
+                            <button type="submit" class="btn-hover">Women</button>
+                            </form>
+                         </div>
+                        <div>
+                            <form action="{{ route('kids') }}">
+                            <button type="submit" class="btn-hover">Kids</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 {{-- Cards --}}
 
                 <div class="row row-cols-1 row-cols-md-4 g-4">
-                    @foreach ($products as $product )
+                    @foreach ($product_picker as $product )
                     <div class="col">
                       <div class="card h-100 position-relative">
+                        <form action="{{ route('product.show',$product->id) }}">
+                          <button class="position relative btn btn-link px-0 py-0">    <img src="{{ $product->getFirstMediaUrl()  }}" class="card-img-top image-hover" alt="...">
                         <div class="position-absolute top-0 end-0 background-black text-white h4">{{ $product->price }}$</div>
-                    <div class="position relative">    <img src="{{ $product->getFirstMediaUrl()  }}" class="card-img-top image-hover" alt="...">
                         <div class="hide">
                             <a href=""> <i class="fa-solid fa-eye fa-2x icon-white"></i></a>
                         </div>
-                    </div>
+                    </button>
+                        </form>
                         <div class="card-body">
                         <h4> {{ $product->name }}</h4>
                           <span> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-regular fa-star"></i></span>
@@ -148,12 +166,14 @@
                             @foreach ($random_products as $product )
                             <div class="col">
                               <div class="card h-100 position-relative">
+                                <form action="{{ route('product.show',$product->id) }}">
+                                  <button class="position relative btn btn-link px-0 py-0">    <img src="{{ $product->getFirstMediaUrl()  }}" class="card-img-top image-hover" alt="...">
                                 <div class="position-absolute top-0 end-0 background-black text-white h4">{{ $product->price }}$</div>
-                            <div class="position relative">    <img src="{{ $product->getFirstMediaUrl()  }}" class="card-img-top image-hover" alt="...">
                                 <div class="hide">
                                     <a href=""> <i class="fa-solid fa-eye fa-2x icon-white"></i></a>
                                 </div>
-                            </div>
+                            </button>
+                                </form>
                                 <div class="card-body">
                                 <h4> {{ $product->name }}</h4>
                                   <span> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-regular fa-star"></i></span>
