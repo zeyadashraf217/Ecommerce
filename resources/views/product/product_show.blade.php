@@ -11,6 +11,27 @@
     <title>Document</title>
 </head>
 <body>
-<div>{{ $product->name }}</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 px-0">
+            <img src="{{ $product->getFirstMediaUrl() }}" height="100%" class="img-fluid">
+        </div>
+        <div class="col-md-6 pt-5 px-5">
+            <div class="h2 pt-5">
+                {{ $product->name }}
+            </div>
+            <div class="text-danger h3">
+                {{ $product->price }}$
+            </div>
+            <div class="pt-3">
+                <form action="">
+                    <button type="submit" class="btn btn-labeled btn-success">
+                        <span class="btn-label pe-3"><i class="fa-solid fa-cart-shopping"></i></span>Add to my Cart
+                    </button>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
