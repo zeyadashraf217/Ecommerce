@@ -170,4 +170,14 @@ text-decoration: none;
 .icon-white{
     color: white;
 }
-
+/* alert css */
+.position-alert{
+        position: fixed;
+        display: block;
+        top: 90%;
+        left: 30%;
+        margin: -100px 0 0 0;
+        height: 200px;
+        width: 40%;
+        z-index: 100;
+}

@@ -106,7 +106,7 @@
 
 
 
-        <script src="{{ asset('build/assets/app.36a2ae13.js') }}"></script>
+        <script src="{{ asset('build/assets/app.325167a4.js') }}"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
 
 </body>

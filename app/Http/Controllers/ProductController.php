@@ -97,72 +97,32 @@ class ProductController extends Controller
         Product::find($id)->delete();
         return back();
     }
-    public function addData()
-    {
-        Category::create(['name' => 'women']);
-        Category::create(['name' => 'men']);
-        Category::create(['name' => 'kids']);
-        $categories = Category::get();
-        foreach ($categories as $category)
-        {
-            for($i=1;$i<9;$i++)
-            {
-            $product = Product::create(['name' => 'item-'.$i , 'price' => '1000' , 'quantity' => '50' , 'category_id' => $category->id ]);
-            $product
-            ->addMedia(storage_path('images/'.$category->name.'/'.$i.'.jpg'))
-            ->preservingOriginal()
-            ->toMediaCollection();
-         }
-
-        }
-      return back();
-    }
     public function all_products()
     {
-        if (request('search')) {
-            $product_search = Product::where('name', 'like', '%' . request('search') . '%')->get();
-        } else {
-            $product_search = Product::all();
-        }
         $product_picker = Product::inRandomOrder()->get()->take(8);
-        $random_products=$product_picker;
-        return view('/homepage',compact('product_picker','random_products','product_search'));
+        $random_products= Product::inRandomOrder()->get()->take(8);
+        return view('/homepage',compact('product_picker','random_products'));
     }
     public function women_products()
     {
-        if (request('search')) {
-            $product_search = Product::where('name', 'like', '%' . request('search') . '%')->get();
-        } else {
-            $product_search = Product::all();
-        }
         $category_id= Category::where('name', 'women')->first()->id;
         $product_picker = Product::where('category_id',$category_id)->get()->take(8);
         $random_products = Product::inRandomOrder()->get()->take(8);
-        return view('/homepage',compact('product_picker','random_products','product_search'));
+        return view('/homepage',compact('product_picker','random_products'));
     }
     public function men_products()
     {
-        if (request('search')) {
-            $product_search = Product::where('name', 'like', '%' . request('search') . '%')->get();
-        } else {
-            $product_search = Product::all();
-        }
         $category_id= Category::where('name', 'men')->first()->id;
         $product_picker = Product::where('category_id',$category_id)->get()->take(8);
         $random_products = Product::inRandomOrder()->get()->take(8);
-        return view('/homepage',compact('product_picker','random_products','product_search'));
+        return view('/homepage',compact('product_picker','random_products'));
     }
     public function kids_products()
     {
-        if (request('search')) {
-            $product_search = Product::where('name', 'like', '%' . request('search') . '%')->get();
-        } else {
-            $product_search = Product::all();
-        }
         $category_id= Category::where('name', 'kids')->first()->id;
         $product_picker = Product::where('category_id',$category_id)->get()->take(8);
         $random_products = Product::inRandomOrder()->get()->take(8);
-        return view('/homepage',compact('product_picker','random_products','product_search'));
+        return view('/homepage',compact('product_picker','random_products'));
     }
     public function search(Request $request)
     {

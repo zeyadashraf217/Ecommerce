@@ -1,5 +1,13 @@
 @extends('layouts.header')
 @section('content')
+@if(session()->has('message'))
+<div class="position-alert" id="alert">
+    <div class=" alert alert-success alert-dismissible fade show " role="alert">
+        <strong>{{ session()->get('message')  }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+@endif
                 {{-- Black bar --}}
                 <div class=" container-fluid background-black mt-2 d-flex ">
                     <div class=" offset-xl-1 col-2">

@@ -23,6 +23,7 @@ use App\Models\Category;
 Route::get('/men', [App\Http\Controllers\ProductController::class, 'men_products'])->name('men');
 Route::get('/kids', [App\Http\Controllers\ProductController::class, 'kids_products'])->name('kids');
 Route::get('/all', [App\Http\Controllers\ProductController::class, 'all_products'])->name('all');
+Route::get('/home', [App\Http\Controllers\ProductController::class, 'women_products'])->name('women');
 Route::get('/', [App\Http\Controllers\ProductController::class, 'women_products'])->name('women');
 
 
@@ -37,5 +38,7 @@ Route::resource('product', ProductController::class);
 Route::resource('category', CategoryController::class);
 Route::resource('user', UserController::class);
 
-Route::get('/adddata', [App\Http\Controllers\ProductController::class, 'addData'])->name('add_data');
 Route::get('/search', [ProductController::class, 'search'])->name('product.search');
+Route::post('/alert', [App\Http\Controllers\MycartController::class, 'add_item'])->name('add_item')->middleware('auth');
+Route::get('/mycart', [App\Http\Controllers\MycartController::class, 'mycart'])->name('mycart')->middleware('auth');
+Route::delete('mycart/{id}', [App\Http\Controllers\MycartController::class, 'destroy'])->name('mycart.destroy');

@@ -53,12 +53,6 @@
                     @endcanany
                 </div>
 
-                <div class="col-md-4 col-md-offset-4 pt-3">
-                    <form action="{{ route('add_data') }}">
-                    <button class="btn btn-success" type="submit" >ADD DATA TO DATABASE</button>
-                    </form>
-                </div>
-
         </div>
     </div>
 </div>

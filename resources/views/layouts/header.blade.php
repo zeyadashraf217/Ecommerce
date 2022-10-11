@@ -47,7 +47,9 @@
                         <a class="nav-link active" href="#">Currency:usd</a>
                       </li>
                       <li class="nav-item ps-5 mycart">
-                        <a class="nav-link active mycart " href="#" ><i class="fa-solid fa-cart-shopping"></i>My Cart</a>
+                        <form action="{{ route('mycart') }}">
+                        <button class="nav-link btn btn-link active mycar"><i class="fa-solid fa-cart-shopping"></i>My Cart</button>
+                        </form>
                       </li>
                       <li></li>
                     </ul>
