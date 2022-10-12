@@ -1,0 +1,6 @@
+1) Don't forget to add the comands ('php artisan migrate') and ('php artisan db:seed) To add the data to the database
+2) To create an account Click on LOGIN on the navbar and then click on new account to register
+3) to try the admin dashboard set the user an admin/moderator
+4) to add a product Search for the item or click in any of the images and add the quantity you need
+
+enjoy

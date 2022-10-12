@@ -133,10 +133,12 @@
                         <div class="card-body">
                         <h4> {{ $product->name }}</h4>
                           <span> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-regular fa-star"></i></span>
-                          <p class="card-text pt-3"><a class="icon-grey"><i class="fa-solid fa-heart  border rounded-circle px-1 py-1"></i> </a>
-                            <a class="icon-grey px-3"><i class="fa-solid fa-cart-shopping  border rounded-circle px-1 py-1"></i> </a>
-                            <a class="icon-grey"><i class="fa-solid fa-share border rounded-circle px-1 py-1"></i> </a>
-                        </p>
+                          <div class="card-text pt-3"><a class="icon-grey text-decoration-none"><i class="fa-solid fa-heart  border rounded-circle px-1 py-1"></i> </a>
+
+                            <a class="icon-grey px-3 text-decoration-none"><i class="fa-solid fa-cart-shopping  border rounded-circle px-1 py-1"></i> </a>
+
+                            <a class="icon-grey text-decoration-none"><i class="fa-solid fa-share border rounded-circle px-1 py-1"></i> </a>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -185,9 +187,9 @@
                                 <div class="card-body">
                                 <h4> {{ $product->name }}</h4>
                                   <span> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-solid fa-star icon-purple"></i> <i class="fa-regular fa-star"></i></span>
-                                  <p class="card-text pt-3"><a class="icon-grey"><i class="fa-solid fa-heart  border rounded-circle px-1 py-1"></i> </a>
-                                    <a class="icon-grey px-3"><i class="fa-solid fa-cart-shopping  border rounded-circle px-1 py-1"></i> </a>
-                                    <a class="icon-grey"><i class="fa-solid fa-share border rounded-circle px-1 py-1"></i> </a>
+                                  <p class="card-text pt-3"><a class="icon-grey text-decoration-none"><i class="fa-solid fa-heart  border rounded-circle px-1 py-1"></i> </a>
+                                    <a class="icon-grey px-3 text-decoration-none"><i class="fa-solid fa-cart-shopping  border rounded-circle px-1 py-1"></i> </a>
+                                    <a class="icon-grey text-decoration-none"><i class="fa-solid fa-share border rounded-circle px-1 py-1"></i> </a>
                                 </p>
                                 </div>
                               </div>
