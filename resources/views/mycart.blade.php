@@ -64,11 +64,14 @@
             </table>
 
         </div>
-        <div class="row offset-5">
-            <form action="">
-                <button type="submit" class="btn btn-labeled btn-warning ms-5">
-                    Procced to checkout
-                </button>
+        <div class="row ">
+            <div class="col-md-4 offset-2">
+                <form action="{{ route('checkout') }} " method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-labeled btn-success ms-5">
+                        Procced to checkout
+                    </button>
+            </div>
             </form>
         </div>
     </div>

@@ -42,3 +42,6 @@ Route::get('/search', [ProductController::class, 'search'])->name('product.searc
 Route::post('/alert', [App\Http\Controllers\MycartController::class, 'add_item'])->name('add_item')->middleware('auth');
 Route::get('/mycart', [App\Http\Controllers\MycartController::class, 'mycart'])->name('mycart')->middleware('auth');
 Route::delete('mycart/{id}', [App\Http\Controllers\MycartController::class, 'destroy'])->name('mycart.destroy');
+Route::post('/Checkout', [App\Http\Controllers\MycartController::class, 'checkout'])->name('checkout')->middleware('auth');
+
+
